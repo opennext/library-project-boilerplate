@@ -1,0 +1,51 @@
+{
+  "name": "library-project-boilerplate",
+  "version": "0.0.1",
+  "description": "A boilerplate for library project, used for common or base solution",
+  "main": "index.js",
+  "scripts": {
+    "clean": "echo \"Error: no clean specified\" && exit 1",
+    "lint": "echo \"Error: no lint specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:iife": "cross-env BABEL_ENV=iife NODE_ENV=development rollup -c -f iife -i src/index.js -o dist/image-util.js",
+    "build:iife:min": "cross-env BABEL_ENV=iife NODE_ENV=production rollup -c -f iife -i src/index.js -o dist/image-util.min.js",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -f umd -i src/index.js -o dist-umd/image-util.js",
+    "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c -f umd -i src/index.js -o dist-umd/image-util.min.js",
+    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min && npm run build:iife && npm run build:iife:min",
+    "prepare": "npm run clean && npm run lint && npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opennext/library-project-boilerplate.git"
+  },
+  "keywords": [
+    "library",
+    "project",
+    "boilerplate",
+    "common",
+    "base",
+    "lib"
+  ],
+  "author": "opennext",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/opennext/library-project-boilerplate/issues"
+  },
+  "homepage": "https://github.com/opennext/library-project-boilerplate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^2.0.1"
+  }
+}
