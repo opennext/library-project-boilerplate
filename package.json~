@@ -4,9 +4,6 @@
   "description": "A boilerplate for library project, used for common or base solution",
   "main": "index.js",
   "scripts": {
-    "clean": "echo \"Error: no clean specified\"",
-    "lint": "echo \"Error: no lint specified\"",
-    "test": "echo \"Error: no test specified\"",
     "build:iife": "cross-env BABEL_ENV=iife NODE_ENV=development rollup -c -f iife -i src/index.js -o dist/image-util.js",
     "build:iife:min": "cross-env BABEL_ENV=iife NODE_ENV=production rollup -c -f iife -i src/index.js -o dist/image-util.min.js",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",

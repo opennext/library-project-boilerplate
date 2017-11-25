@@ -1,9 +1,8 @@
 .DS_Store
 *.log
 node_modules
-//dist-umd
-//dist
-//lib
-//es
+dist
+lib
+es
 coverage
 _book
